@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Agence de location de voiture - LocaDrive</title>
+
+    <link rel="shortcut icon" href="<?= $wwwUrl ?>/images/faveicon.png">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/locadrive.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/generic.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/service.css">
+    <!-- Librairie jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+    <script src="<?= $wwwUrl ?>/js/classes/FormValidator.class.js"></script>
+</head>
+
+<body>
+    <!-- En-tête commune -->
+    <header class="slideshow">
+        <div class="navbar-container">
+            <nav class="user-interface container flex aic jcsb">
+                <a class="logo" href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo.png" width="250" alt="" srcset=""></a>
+                <ul class="link-list">
+                    <li class="layout-right flex aic gap-25">
+                        <a href="<?= $requestUrl ?>/vehicules">Nos véhicules</a>
+                        <a href="<?= $requestUrl ?>/contact">Contact</a>
+                        <?php if ($userSession->isAuthenticated() == true) : ?>
+                            <a class="auth-btn" href="<?= $requestUrl ?>/user/logout">Déconnexion</a>
+                        <?php else : ?>
+                            <a class="auth-btn flex aic gap-5" href="<?= $requestUrl ?>/user/login"><img src="<?= $wwwUrl ?>/images/icons/user.svg" alt="" srcset=""><span>Mon compte</span></a>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Contenu de la page -->
+    <main class="container">
+        <!-- Affichage du template lié à la vue -->
+        <?php include $this->viewData['template'] ?>
+    </main>
+    <!-- Pied de page commun -->
+    <footer>
+        <nav class="container flex jcsa">
+            <div>
+                <h3>Nos produits</h3>
+                <ul class="link-list">
+                    <li><a href="#">Location de voiture</a></li>
+                    <li><a href="#">Location d'utilitaire</a></li>
+                    <li><a href="#">Nos agences</a></li>
+                    <li><a href="#">Chauffeur privé / VTC</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <ul class="link-list">
+                    <li><a href="#">BP 2115 CHARLES WANGA Bépanda,<br />Douala, Cameroun</a></li>
+                    <li><a href="#">contact@locadrive.com</a></li>
+                    <li><a href="#">+237 6 99 37 71 06</a></li>
+                    <li class="flex aic jcc gap-5 media-social-container">
+                        <a href="#"><img src="<?= $wwwUrl ?>/images/icons/facebook.svg" alt="Facebook" srcset=""></a>
+                        <a href="#"><img src="<?= $wwwUrl ?>/images/icons/instagram.svg" alt="Instagram" srcset=""></a>
+                        <a href="#"><img src="<?= $wwwUrl ?>/images/icons/linkedin.svg" alt="Linkedin" srcset=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- Code principal JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/main.js"></script>
+</body>
+
+</html>
